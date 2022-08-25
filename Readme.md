@@ -1,1 +1,1 @@
-A not bullethell game project
+A not bullet hell game project
