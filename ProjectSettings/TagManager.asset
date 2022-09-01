@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - 
+  - TileBaseLayer1
+  - TileBaseLayer2
   - 
-  - TileBase2
-  - 
-  - 
+  - Items
   - 
   - 
   - 
@@ -49,4 +49,16 @@ TagManager:
     locked: 0
   - name: Floor3
     uniqueID: 3117413041
+    locked: 0
+  - name: Items
+    uniqueID: 1684954781
+    locked: 0
+  - name: FrontLayer1
+    uniqueID: 1192612259
+    locked: 0
+  - name: FrontLayer2
+    uniqueID: 927178873
+    locked: 0
+  - name: UI
+    uniqueID: 3629435141
     locked: 0
