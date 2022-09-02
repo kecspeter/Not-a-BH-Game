@@ -50,6 +50,9 @@ TagManager:
   - name: Floor3
     uniqueID: 3117413041
     locked: 0
+  - name: Characters
+    uniqueID: 493880115
+    locked: 0
   - name: Items
     uniqueID: 1684954781
     locked: 0

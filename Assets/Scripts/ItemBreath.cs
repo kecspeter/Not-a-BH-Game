@@ -6,14 +6,14 @@ public class ItemBreath : MonoBehaviour
 {
 
     [SerializeField]
-    private int breathTime = 1000; //in ms
-    public int BreathTime { get => this.breathTime; set => this.breathTime = value; }
+    private float breathTime = 0.5f; //in s
+    public float BreathTime { get => this.breathTime; set => this.breathTime = value; }
 
     [SerializeField]
-    private float maxSizePerc = 1.1f;
+    private float maxSizePerc = 1.18f; // scale multiply
     public float MaxSizePerc { get => this.maxSizePerc; set => this.maxSizePerc = value; }
 
-    private int time;
+    private float prevFrameTime;
 
     private Transform _objectTransform;
     private float _maxSizePerc;
@@ -21,7 +21,7 @@ public class ItemBreath : MonoBehaviour
 
     void Start()
     {
-        time = 1;
+        prevFrameTime = Time.time;
         _objectTransform = gameObject.GetComponent<Transform>();
 
     }
@@ -29,13 +29,13 @@ public class ItemBreath : MonoBehaviour
 
     void Update()
     {
-        float currPeriod = time / BreathTime;
-        float size = Mathf.Sin(currPeriod);
+        
+        float period = prevFrameTime / BreathTime;
+        float currPeriod = Mathf.Sin(period);
 
-
-        Vector3 newScale = new Vector3(size, size, 1);
+        float scaleModifier = 1 - MaxSizePerc;
+        Vector3 newScale = new Vector3(1 + currPeriod * scaleModifier, 1 + currPeriod * scaleModifier, 1);
         _objectTransform.localScale = newScale;
-        Debug.Log(newScale);
-        time++;
+        prevFrameTime = Time.time;
     }
 }

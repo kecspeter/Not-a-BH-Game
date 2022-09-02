@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -2252,8 +2252,8 @@ TextureImporter:
       WEAPONS _76: 1031114887
       WEAPONS _5: 1180627872
       WEAPONS _24: -593303766
-      WEAPONS _22: 1306006056
       WEAPONS _17: 693795259
+      WEAPONS _22: 1306006056
       WEAPONS _84: -1021556510
       WEAPONS _75: -776532578
       WEAPONS _33: -801316993
@@ -2282,13 +2282,13 @@ TextureImporter:
       WEAPONS _70: 903121838
       WEAPONS _2: 735542127
       WEAPONS _18: 178486011
-      WEAPONS _28: -1554305570
       WEAPONS _46: -796560297
-      WEAPONS _48: -1542219291
-      WEAPONS _89: 635606892
       WEAPONS _78: 1228631950
+      WEAPONS _28: -1554305570
+      WEAPONS _89: 635606892
       WEAPONS _4: -782389956
       WEAPONS _91: -1572950292
+      WEAPONS _48: -1542219291
       WEAPONS _3: 239757988
       WEAPONS _13: 723928463
       WEAPONS _96: 396813688

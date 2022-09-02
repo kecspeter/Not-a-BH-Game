@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47416,31 +47416,31 @@ TextureImporter:
       MainLevBuild_23: -1057236313
       MainLevBuild_136: -763492746
       MainLevBuild_790: -402221782
-      MainLevBuild_2048: 1450748975
-      MainLevBuild_1470: 1293338803
-      MainLevBuild_390: -2064622122
-      MainLevBuild_1173: 891703479
-      MainLevBuild_179: -1766835214
-      MainLevBuild_1938: 541567773
       MainLevBuild_1330: -997364389
-      MainLevBuild_665: 215699071
+      MainLevBuild_2048: 1450748975
+      MainLevBuild_390: -2064622122
+      MainLevBuild_1470: 1293338803
+      MainLevBuild_1938: 541567773
       MainLevBuild_575: -1540009603
-      MainLevBuild_253: -347314848
-      MainLevBuild_1397: -1560721879
       MainLevBuild_17: -819055935
-      MainLevBuild_2117: 1648187746
-      MainLevBuild_2130: -1498262780
+      MainLevBuild_1173: 891703479
+      MainLevBuild_1397: -1560721879
+      MainLevBuild_179: -1766835214
+      MainLevBuild_2236: -2117884692
       MainLevBuild_1719: -1477230771
+      MainLevBuild_665: 215699071
+      MainLevBuild_2130: -1498262780
       MainLevBuild_2182: -919761702
+      MainLevBuild_253: -347314848
       MainLevBuild_821: 1935091466
       MainLevBuild_1769: 236938006
       MainLevBuild_526: 1735836272
       MainLevBuild_1183: -1594509988
       MainLevBuild_1788: 156893375
       MainLevBuild_345: 363191566
-      MainLevBuild_2051: -1058245690
+      MainLevBuild_2117: 1648187746
       MainLevBuild_96: -1340407118
-      MainLevBuild_2236: -2117884692
+      MainLevBuild_2051: -1058245690
       MainLevBuild_104: -1490826271
       MainLevBuild_160: 354508621
       MainLevBuild_508: -1853949807
@@ -47936,8 +47936,8 @@ TextureImporter:
       MainLevBuild_490: 981885021
       MainLevBuild_2118: 1884197750
       MainLevBuild_1572: 479427064
-      MainLevBuild_1634: -1007602994
       MainLevBuild_1011: 621102336
+      MainLevBuild_1634: -1007602994
       MainLevBuild_261: -1931134718
       MainLevBuild_1336: 125495104
       MainLevBuild_254: -24552421
@@ -48581,8 +48581,8 @@ TextureImporter:
       MainLevBuild_1371: -337557275
       MainLevBuild_1424: 204177656
       MainLevBuild_771: 251879653
-      MainLevBuild_1359: -850864987
       MainLevBuild_97: 2077531778
+      MainLevBuild_1359: -850864987
       MainLevBuild_1101: -213972756
       MainLevBuild_1225: -1406542904
       MainLevBuild_1894: 261477215
