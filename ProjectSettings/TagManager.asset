@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - 
+  - TileBaseLayer1
+  - TileBaseLayer2
   - 
-  - 
-  - 
-  - 
+  - Items
   - 
   - 
   - 
@@ -40,4 +40,28 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor1
+    uniqueID: 2104813577
+    locked: 0
+  - name: Floor2
+    uniqueID: 1768230631
+    locked: 0
+  - name: Floor3
+    uniqueID: 3117413041
+    locked: 0
+  - name: Characters
+    uniqueID: 493880115
+    locked: 0
+  - name: Items
+    uniqueID: 1684954781
+    locked: 0
+  - name: FrontLayer1
+    uniqueID: 1192612259
+    locked: 0
+  - name: FrontLayer2
+    uniqueID: 927178873
+    locked: 0
+  - name: UI
+    uniqueID: 3629435141
     locked: 0
