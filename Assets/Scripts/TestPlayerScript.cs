@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TestPlayerScript : MonoBehaviour
@@ -7,33 +8,55 @@ public class TestPlayerScript : MonoBehaviour
     private Vector3 newPostion;
     private float newT;
     private Camera _camera;
+    private GameObject _marker;
 
-    public float speed = 0.04f;
+    public float speed = 0.03f;
 
-    // Start is called before the first frame update
+
+    private TextMeshProUGUI UITextPlayerPos;
+
     void Start()
     {
         newPostion = transform.position;
         _camera = Camera.main;
         _camera.GetComponent<TestCameraFollow>().ObjectToFollow = gameObject;
-        Debug.Log(_camera.gameObject.name);
+
+        //_marker = GameObject.
+
+        UITextPlayerPos = GameObject.FindWithTag("UITestPlayerPosition").GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
-            {
-                newPostion = hit.point;
-                newT = Time.time;
-            }
 
-            Debug.Log(hit.point);
+        MoveCheck();
+        
+        RefreshDebugValues();
+    }
+
+
+    private void MoveCheck()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            newPostion = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            newPostion.z = transform.position.z;
+            newT = Time.time;
+
+            //Debug.Log(newPostion);
         }
 
         transform.position = Vector3.Lerp(transform.position, newPostion, speed);
+
+    }
+
+
+
+    private void RefreshDebugValues()
+    {
+        if (UITextPlayerPos != null)
+        {
+            UITextPlayerPos.text = transform.position.ToString();
+        }
     }
 }
