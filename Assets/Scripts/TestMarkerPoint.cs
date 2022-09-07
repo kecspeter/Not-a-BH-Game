@@ -5,18 +5,24 @@ using UnityEngine;
 public class TestMarkerPoint : MonoBehaviour
 {
 
-    private GameObject objectToFollow = null;
-    public GameObject ObjectToFollow { get => this.objectToFollow; set => this.objectToFollow = value; }
+    [SerializeField]
+    private float lifeTime = 600.0f;
+    public float LifeTime { get => this.lifeTime;  set => this.lifeTime = value; }
 
-
+    private float countDown;
 
     void Start()
     {
-        
+        countDown = lifeTime;
     }
 
     void Update()
     {
-        
+        transform.localScale = transform.localScale * Mathf.Sqrt(countDown / LifeTime);
+        countDown--;
+        if(countDown < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -35,7 +35,6 @@ public class TestCameraFollow : MonoBehaviour
             mousePos.z = transform.position.z;
 
             float mouseDistance = Vector3.Distance(transform.position, mousePos);
-            Debug.Log(mouseDistance);
             if (mouseDistance < MinDistFromCenter)
             {
                 transform.position = objectPos;

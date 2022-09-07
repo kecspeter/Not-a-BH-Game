@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - UITestPlayerPosition
+  - UIMousePosition
   layers:
   - Default
   - TransparentFX
