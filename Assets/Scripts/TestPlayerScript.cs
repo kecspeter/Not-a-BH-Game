@@ -1,130 +1,95 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
+
+//always remove not used libraries
 
 public class TestPlayerScript : MonoBehaviour
 {
-    //UI-Debug related
-    private TextMeshProUGUI UITextPlayerPos;
-    private TextMeshProUGUI UITextMousePos;
-
-
-    //Moving related
-    [SerializeField]
-    private TestMarkerPoint _markerPref;
-    private Vector3 newPostion;
-
+    private Vector3 newPosition;
+    private float newT;
     private Camera _camera;
 
-    public float speed = 0.03f;
+    private bool isFollowOn;
 
+    private Vector2 targetPos;
 
-    //Animation related
-    private Animator _animator;
-
-    public int characterSide = 0; //Im to lazy to use enum... 0 back, 1 front
-    public bool isIdle = true;
-
-    private float characterDir = 0.0f;
-    public float CharacterDir
+    public Vector2 TargetPos
     {
-        get => characterDir;
-        set
+        get => targetPos;
+        set => targetPos = value;
+    }
+
+    public Vector2 CurrPos
+    {
+        get => new Vector2(transform.position.x,transform.position.y); 
+    }
+
+
+    public float speed = 4f;
+
+    //mivel semmi sem használja egyelőre a dolgokat, nem muszáj, de getter setter-re szokjunk rá, ahol van értelme
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        newPosition = transform.position;
+        _camera = Camera.main;
+        _camera.GetComponent<TestCameraFollow>().ObjectToFollow = gameObject;
+        Debug.Log(_camera.gameObject.name);
+
+        MouseScript.OnRightClickDown += RefreshTargetPos;
+
+    }
+
+    void RefreshTargetPos(Vector2 mousePos)
+    {
+        Debug.Log("Másik oldal:" +mousePos);
+        targetPos = mousePos;
+    }
+
+    void MoveToTarget()
+    {
+        //Distance function returns the distance between two vector2's in float
+        if (Vector2.Distance(targetPos, CurrPos)>.5f)
         {
-            characterDir = value;
-            if(value > 90 || value < -90)
-            {
-                characterSide = 0;
-            }
-            else
-            {
-                characterSide = 1;
-            }
+            transform.position = Vector2.MoveTowards(CurrPos, targetPos, speed);
         }
     }
 
-    
-
-    void Start()
-    {
-        UITextPlayerPos = GameObject.FindWithTag("UITestPlayerPosition").GetComponent<TextMeshProUGUI>();
-        UITextMousePos = GameObject.FindWithTag("UIMousePosition").GetComponent<TextMeshProUGUI>();
-
-        newPostion = transform.position;
-        _camera = Camera.main;
-        _camera.GetComponent<TestCameraFollow>().ObjectToFollow = gameObject;
-
-        _animator = GetComponent<Animator>();
-    }
-
+    // Update is called once per frame
     void Update()
     {
 
-        isIdle = MoveCharacter();
-        CharacterDir = GetCharacterAngle();
-        AnimateCharacter();
-
-
-        RefreshDebugValues();
-    }
-    private float GetCharacterAngle()
-    {
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = transform.position.z;
-        Vector3 dirVec = Vector3.Normalize(mousePos - transform.position);
-
-        return Mathf.Rad2Deg * Mathf.Atan2(dirVec.y, dirVec.x);
-    }
-
-    private void AnimateCharacter()
-    {
-        if(_animator != null)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            _animator.SetInteger("CharacterSide", characterSide);
-            _animator.SetFloat("CharacterDir", characterDir);
-            _animator.SetBool("isIdle", isIdle);
-        }
-    }
-
-    private bool MoveCharacter()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            newPostion = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            newPostion.z = transform.position.z;
-
-
-            Instantiate<TestMarkerPoint>(_markerPref, newPostion, transform.rotation);
-        }
-        if (Input.GetMouseButton(1))
-        {
-            newPostion = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            newPostion.z = transform.position.z;
+            _camera.GetComponent<TestCameraFollow>().ObjectToFollow = isFollowOn ? gameObject: null;
+            isFollowOn = !isFollowOn;
+            Debug.Log("toggle");
         }
 
-        
-        Vector3 prevPosition = transform.position;
-        transform.position = Vector3.Lerp(transform.position, newPostion, speed);
-        if(transform.position != prevPosition)
-        {
-            return false;
-        }
-        return true;
-    }
-
-
-
-    private void RefreshDebugValues()
-    {
-        if (UITextPlayerPos != null)
-        {
-            UITextPlayerPos.text = transform.position.ToString();
-        }
-        //if (UITextMousePos != null)
+        // Ctrl-K-D komment, Ctrl K-U uncomment kijelölt szöveg
+        //if (Input.GetMouseButtonDown(1))
         //{
-        //    UITextMousePos.text = "(" + Input.GetAxisRaw("Horizontal") + ", " + Input.GetAxisRaw("Vertical") + ")";
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+        //    {
+        //        newPostion = hit.point;
+        //        newT = Time.time;
+        //    }
+
+        //    Debug.Log(hit.point);
         //}
+        //transform.position = Vector3.Lerp(transform.position, targetPos, speed);
+        MoveToTarget();
+
+    }
+
+    void OnEnable()
+    {
+        MouseScript.OnRightClickDown += RefreshTargetPos;
+    }
+
+    void OnDisable()
+    {
+        MouseScript.OnRightClickDown -= RefreshTargetPos;
     }
 }
