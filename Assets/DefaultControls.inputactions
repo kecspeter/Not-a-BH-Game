@@ -1,0 +1,71 @@
+{
+    "name": "DefaultControls",
+    "maps": [
+        {
+            "name": "DefaultMapping",
+            "id": "b18d268e-b6ce-4527-8df6-dbc89aceed07",
+            "actions": [
+                {
+                    "name": "CameraFollowMode",
+                    "type": "Button",
+                    "id": "f1e7be0a-a2b5-4a20-aa68-4521226f50d0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "6e77d511-ff38-41f8-beb1-5b5c2076dc9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "60a794d1-1771-4e3f-9965-8abc38d0258c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraFollowMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2839f5a5-ffac-48df-b143-5648315fdd16",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "PCControls",
+            "bindingGroup": "PCControls",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
